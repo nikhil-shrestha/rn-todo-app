@@ -1,27 +1,27 @@
-import React, { useCallback } from 'react';
-import { Text, TouchableWithoutFeedback } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
-import styled from 'styled-components/native'; // eslint-disable-line import/no-extraneous-dependencies
-import { MainNavigationProp } from '../../routing/types';
-import { MainRoutes } from '../../routing/routes';
-import DefaultPage from '../../components/shells/DefaultPage';
+import React, { useCallback } from 'react'
+import { Text, TouchableWithoutFeedback } from 'react-native'
+import { useFocusEffect } from '@react-navigation/native'
+import styled from 'styled-components/native' // eslint-disable-line import/no-extraneous-dependencies
+import { MainNavigationProp } from '../../routing/types'
+import { MainRoutes } from '../../routing/routes'
+import DefaultPage from '../../components/layouts/DefaultPage'
 
 type SplashScreenProps = {
-    navigation: MainNavigationProp<MainRoutes.Splash>;
-};
+    navigation: MainNavigationProp<MainRoutes.Splash>
+}
 
 const SplashScreen = ({ navigation }: SplashScreenProps): React.ReactElement => {
-    const navigate = useCallback(() => navigation.navigate(MainRoutes.AppCheck), [navigation]);
+    const navigate = useCallback(() => navigation.navigate(MainRoutes.AppCheck), [navigation])
 
     useFocusEffect(
         useCallback(() => {
             const navigationTimer = setTimeout(() => {
-                navigate();
-            }, 3000);
+                navigate()
+            }, 3000)
 
-            return (): void => clearTimeout(navigationTimer);
-        }, [navigate])
-    );
+            return (): void => clearTimeout(navigationTimer)
+        }, [navigate]),
+    )
 
     return (
         <TouchableWithoutFeedback onPress={() => navigate()}>
@@ -37,22 +37,22 @@ const SplashScreen = ({ navigation }: SplashScreenProps): React.ReactElement => 
                 </StyledFooter>
             </DefaultPage>
         </TouchableWithoutFeedback>
-    );
-};
+    )
+}
 
 const StyledTitleBox = styled.View`
     width: 100%;
     height: 50%;
     align-items: center;
     justify-content: center;
-`;
+`
 
 const StyledContentBox = styled.View`
     width: 100%;
     height: 45%;
     align-items: center;
     justify-content: center;
-`;
+`
 
 const StyledFooter = styled.View`
     width: 100%;
@@ -60,6 +60,6 @@ const StyledFooter = styled.View`
     padding-right: 3%;
     align-items: flex-end;
     justify-content: center;
-`;
+`
 
-export default SplashScreen;
+export default SplashScreen

@@ -4,7 +4,7 @@ import { MainNavigationProp } from '../../routing/types'
 import { MainRoutes } from '../../routing/routes'
 import { useReduxDispatch } from '../../redux'
 import { setLogout } from '../../redux/ducks/user'
-import DefaultPage from '../../components/shells/DefaultPage'
+import DefaultPage from '../../components/layouts/DefaultPage'
 
 type HomeScreenProps = {
     navigation: MainNavigationProp<MainRoutes.Home>

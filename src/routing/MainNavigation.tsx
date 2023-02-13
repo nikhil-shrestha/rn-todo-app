@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native'
 
 import { useReduxDevToolsExtension } from '@react-navigation/devtools'
-import { HomeRoutes, HomeTabs, MainRoutes, MainStack } from './routes'
+import { HomeRoutes, HomeTabs, MainRoutes, MainStack, MainStackParamList } from './routes'
 import { useReduxSelector } from '../redux'
 import { selectIsRunning } from '../redux/ducks/appState'
 
@@ -27,7 +27,7 @@ const Home = () => (
 const MainNavigation = (): React.ReactElement => {
     const isAppRunning = useReduxSelector(selectIsRunning)
 
-    const navigationRef: React.RefObject<NavigationContainerRef> = useRef(null)
+    const navigationRef: React.RefObject<NavigationContainerRef<MainStackParamList>> = useRef(null)
 
     useReduxDevToolsExtension(navigationRef)
 

@@ -6,7 +6,7 @@ import { MainRoutes } from '../../routing/routes'
 import { useReduxDispatch, useReduxSelector } from '../../redux'
 import { attemptSignUp, resetLogin, selectLogin } from '../../redux/ducks/user'
 import UserForm from '../../components/demo/UserForm'
-import DefaultPage from '../../components/shells/DefaultPage'
+import DefaultPage from '../../components/layouts/DefaultPage'
 
 type SignUpScreenProps = {
     navigation: MainNavigationProp<MainRoutes.SignUp>

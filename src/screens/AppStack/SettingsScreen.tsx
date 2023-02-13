@@ -3,7 +3,7 @@ import { Text, Button } from 'react-native'
 import { MainNavigationProp } from '../../routing/types'
 import { MainRoutes } from '../../routing/routes'
 import Settings from '../../components/demo/Settings'
-import DefaultPage from '../../components/shells/DefaultPage'
+import DefaultPage from '../../components/layouts/DefaultPage'
 
 type SettingsScreenProps = {
     navigation: MainNavigationProp<MainRoutes.Settings>

@@ -7,7 +7,7 @@ import { MainRoutes } from '../../routing/routes'
 import { useReduxSelector } from '../../redux'
 import { selectLogin } from '../../redux/ducks/user'
 import { useInterval } from '../../hooks'
-import DefaultPage from '../../components/shells/DefaultPage'
+import DefaultPage from '../../components/layouts/DefaultPage'
 
 type AppCheckScreenProps = {
     navigation: MainNavigationProp<MainRoutes.AppCheck>
@@ -17,10 +17,7 @@ const AppCheckScreen = ({ navigation }: AppCheckScreenProps): React.ReactElement
     const [count, setCount] = useState(0)
     const isLoggedIn = useReduxSelector(selectLogin)
 
-    const getRoute = useCallback(
-        () => (isLoggedIn ? MainRoutes.AppLoading : MainRoutes.SignIn),
-        [isLoggedIn],
-    )
+    const getRoute = useCallback(() => (isLoggedIn ? MainRoutes.AppLoading : MainRoutes.SignIn), [isLoggedIn])
 
     useInterval(() => {
         if (count < 200) {
