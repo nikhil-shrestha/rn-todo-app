@@ -1,12 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import userReducer from './ducks/user'
-import counterReducer from './ducks/counter'
-import appStateReducer from './ducks/appState'
+import userInfoReducer from './ducks/userInfoSlice'
 
 const rootReducer = combineReducers({
-    appState: appStateReducer,
-    user: userReducer,
-    counter: counterReducer,
+    userInfo: userInfoReducer,
 })
 
 export default rootReducer

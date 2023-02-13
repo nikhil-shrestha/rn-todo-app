@@ -1,24 +1,18 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components/native'; // eslint-disable-line import/no-extraneous-dependencies
-import { StatusBar } from 'expo-status-bar';
-import { enableScreens } from 'react-native-screens';
-import { PersistGate } from 'redux-persist/integration/react';
-import store, { persistor } from './src/redux';
-import MainNavigation from './src/routing/MainNavigation';
-import theme from './src/styles/baseTheme';
+import React from 'react'
+import { StatusBar } from 'expo-status-bar'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
-enableScreens();
+import store, { persistor } from '@Store'
+import MainNavigation from '@Routing/MainNavigation'
 
-export default function App(): React.ReactElement {
+export default function App() {
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <ThemeProvider theme={theme}>
-                    <StatusBar hidden />
-                    <MainNavigation />
-                </ThemeProvider>
+                <MainNavigation />
+                <StatusBar hidden />
             </PersistGate>
         </Provider>
-    );
+    )
 }

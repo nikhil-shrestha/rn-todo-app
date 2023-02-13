@@ -1,17 +1,23 @@
 import React from 'react'
-import styled from 'styled-components/native'
+import { View, StyleSheet, ViewStyle } from 'react-native'
 
-export type DefaultPageProps = {
+type DefaultPageProps = {
     children: React.ReactNode
 }
 
-const DefaultPage = ({ children }: DefaultPageProps): React.ReactElement => <StyledPage>{children}</StyledPage>
+const DefaultPage = ({ children }: DefaultPageProps): React.ReactElement => <View style={styles.page}>{children}</View>
 
-const StyledPage = styled.View`
-    flex: 1;
-    background-color: #fff;
-    align-items: center;
-    justify-content: center;
-`
+type Styles = {
+    page: ViewStyle
+}
+
+const styles = StyleSheet.create<Styles>({
+    page: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+})
 
 export default DefaultPage
