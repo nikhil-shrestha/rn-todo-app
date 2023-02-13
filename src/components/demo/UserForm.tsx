@@ -10,7 +10,7 @@ type UserFormProps = {
 };
 
 const UserForm = ({ submitHandler, label }: UserFormProps): React.ReactElement => {
-    const [email, setEmail] = useState('hans@wurst.de');
+    const [email, setEmail] = useState('anna@email.test');
     const [password, setPassword] = useState('wiener');
 
     const isLoading = useReduxSelector(selectIsSubmitting);

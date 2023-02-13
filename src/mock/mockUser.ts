@@ -38,8 +38,8 @@ const mockFailure = (value: FailureValue): Promise<FailureValue> => {
 const fakeUserData: UserData[] = [
     {
         id: 'u0001',
-        name: 'Bobette Bobson',
-        email: 'bobette@bob.test',
+        name: 'John Doe',
+        email: 'john@email.test',
         password: 'test123',
         settings: {
             language: 'english',
@@ -49,11 +49,11 @@ const fakeUserData: UserData[] = [
     },
     {
         id: 'u0002',
-        name: 'Hans Wurst',
-        email: 'hans@wurst.de',
+        name: 'Anna Smith',
+        email: 'anna@email.test',
         password: 'wiener',
         settings: {
-            language: 'deutsch',
+            language: 'english',
             music: 5,
             theme: 'light',
         },

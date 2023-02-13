@@ -33,7 +33,11 @@ const MainNavigation = (): React.ReactElement => {
 
     return (
         <NavigationContainer ref={navigationRef}>
-            <MainStack.Navigator headerMode="none">
+            <MainStack.Navigator
+                screenOptions={{
+                    headerShown: false,
+                }}
+            >
                 {isAppRunning ? (
                     <>
                         <MainStack.Screen name={MainRoutes.Home} component={Home} />
