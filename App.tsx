@@ -1,14 +1,14 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components/native'; // eslint-disable-line import/no-extraneous-dependencies
-import { StatusBar } from 'expo-status-bar';
-import { enableScreens } from 'react-native-screens';
-import { PersistGate } from 'redux-persist/integration/react';
-import store, { persistor } from './src/redux';
-import MainNavigation from './src/routing/MainNavigation';
-import theme from './src/styles/baseTheme';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { ThemeProvider } from 'styled-components/native'
+import { StatusBar } from 'expo-status-bar'
+import { enableScreens } from 'react-native-screens'
+import { PersistGate } from 'redux-persist/integration/react'
+import store, { persistor } from './src/redux'
+import MainNavigation from './src/routing/MainNavigation'
+import theme from './src/styles/baseTheme'
 
-enableScreens();
+enableScreens()
 
 export default function App(): React.ReactElement {
     return (
@@ -20,5 +20,5 @@ export default function App(): React.ReactElement {
                 </ThemeProvider>
             </PersistGate>
         </Provider>
-    );
+    )
 }
