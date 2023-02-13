@@ -1,6 +1,5 @@
 /* created by Dan Abramov
  * src: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
- * slightly adjusted for react native + react navigation by Konrad Abe (AllBitsEqual)
  * */
 
 import { useEffect, useCallback, useRef } from 'react';
