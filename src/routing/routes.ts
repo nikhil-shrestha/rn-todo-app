@@ -1,5 +1,5 @@
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 export enum MainRoutes {
     // Init Stack
@@ -24,25 +24,24 @@ export enum HomeRoutes {
 
 export type MainStackParamList = {
     // Init Stack
-    [MainRoutes.Splash]: undefined;
-    [MainRoutes.AppCheck]: undefined;
+    [MainRoutes.Splash]: undefined
+    [MainRoutes.AppCheck]: undefined
 
     // Auth Stack
-    [MainRoutes.SignIn]: undefined;
-    [MainRoutes.SignUp]: undefined;
+    [MainRoutes.SignIn]: undefined
+    [MainRoutes.SignUp]: undefined
 
     // App Stack
-    [MainRoutes.AppLoading]: undefined;
-    [MainRoutes.Home]: undefined;
-    [MainRoutes.Settings]: undefined;
-};
+    [MainRoutes.AppLoading]: undefined
+    [MainRoutes.Home]: undefined
+    [MainRoutes.Settings]: undefined
+}
 
 export type HomeTabsParamList = {
-    [HomeRoutes.HomeA]: { update: boolean } | undefined; // just an example, "update" will later be used for version checks
-    [HomeRoutes.HomeB]: undefined;
-    [HomeRoutes.HomeC]: undefined;
-};
+    [HomeRoutes.HomeA]: { update: boolean } | undefined // just an example, "update" will later be used for version checks
+    [HomeRoutes.HomeB]: undefined
+    [HomeRoutes.HomeC]: undefined
+}
 
-export const MainStack = createStackNavigator<MainStackParamList>();
-
-export const HomeTabs = createBottomTabNavigator<HomeTabsParamList>();
+export const MainStack = createStackNavigator<MainStackParamList>()
+export const HomeTabs = createBottomTabNavigator<HomeTabsParamList>()

@@ -28,35 +28,26 @@ export const setLogin = createAction('[USER] Set Login', (email: string, newUser
 
 export const resetLogin = createAction('[USER] Reset Login')
 
-export const setLogout = createAction(
-    '[USER] Set Logout',
-    (loginState?: LoginState, message?: string) => ({
-        payload: {
-            loginState,
-            message,
-        },
-    }),
-)
+export const setLogout = createAction('[USER] Set Logout', (loginState?: LoginState, message?: string) => ({
+    payload: {
+        loginState,
+        message,
+    },
+}))
 
-export const attemptLogin = createAction(
-    '[USER] attempt Login',
-    (email: string, password: string) => ({
-        payload: {
-            email,
-            password,
-        },
-    }),
-)
+export const attemptLogin = createAction('[USER] attempt Login', (email: string, password: string) => ({
+    payload: {
+        email,
+        password,
+    },
+}))
 
-export const attemptSignUp = createAction(
-    '[USER] attempt SignUp',
-    (email: string, password: string) => ({
-        payload: {
-            email,
-            password,
-        },
-    }),
-)
+export const attemptSignUp = createAction('[USER] attempt SignUp', (email: string, password: string) => ({
+    payload: {
+        email,
+        password,
+    },
+}))
 
 export const selectLogin = (state: RootState): boolean => state.user.login
 export const selectLoginState = (state: RootState): string | undefined => state.user.loginState
@@ -64,9 +55,7 @@ export const selectIsSubmitting = (state: RootState): boolean => state.user.logi
 export const selectLoginMessage = (state: RootState): string | undefined => state.user.message
 
 export const userMiddleware: Middleware =
-    ({ dispatch }) =>
-    next =>
-    action => {
+    ({ dispatch }) => (next) => (action) => {
         next(action)
 
         if (attemptLogin.match(action)) {
@@ -74,7 +63,7 @@ export const userMiddleware: Middleware =
 
             login(email, password)
                 .then(() => dispatch(setLogin(email, false)))
-                .catch(err => dispatch(setLogout('denied', err.message)))
+                .catch((err) => dispatch(setLogout('denied', err.message)))
         }
 
         if (attemptSignUp.match(action)) {
@@ -82,7 +71,7 @@ export const userMiddleware: Middleware =
 
             createAccount(email, password)
                 .then(() => dispatch(setLogin(email, true)))
-                .catch(err => dispatch(setLogout('denied', err.message)))
+                .catch((err) => dispatch(setLogout('denied', err.message)))
         }
 
         if (setLogout.match(action)) {
@@ -90,19 +79,19 @@ export const userMiddleware: Middleware =
         }
     }
 
-const userReducer = createReducer(initialState, builder => {
+const userReducer = createReducer(initialState, (builder) => {
     builder
-        .addCase(attemptLogin, state => ({
+        .addCase(attemptLogin, (state) => ({
             ...state,
             loginState: 'loading',
             message: 'loading',
         }))
-        .addCase(attemptSignUp, state => ({
+        .addCase(attemptSignUp, (state) => ({
             ...state,
             loginState: 'loading',
             message: 'loading',
         }))
-        .addCase(resetLogin, state => ({
+        .addCase(resetLogin, (state) => ({
             ...state,
             loginState: 'init',
             message: undefined,

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Button, Text } from 'react-native';
+import React from 'react'
+import { Button, Text } from 'react-native'
 
-import { decrement, increment } from '../../redux/demo/counter';
-import { useReduxDispatch, useReduxSelector } from '../../redux';
+import { decrement, increment } from '../../redux/demo/counter'
+import { useReduxDispatch, useReduxSelector } from '../../redux'
 
 const Counter = (): React.ReactElement => {
-    const value = useReduxSelector((state) => state.counter);
-    const dispatch = useReduxDispatch();
+    const value = useReduxSelector((state) => state.counter)
+    const dispatch = useReduxDispatch()
 
     return (
         <>
@@ -18,7 +18,7 @@ const Counter = (): React.ReactElement => {
                 -1
             </Button>
         </>
-    );
-};
+    )
+}
 
-export default Counter;
+export default Counter

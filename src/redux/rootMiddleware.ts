@@ -1,3 +1,3 @@
-import { userMiddleware } from './ducks/user';
+import { userMiddleware } from './ducks/user'
 
-export default [userMiddleware];
+export default [userMiddleware]

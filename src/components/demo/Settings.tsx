@@ -1,31 +1,31 @@
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import styled from 'styled-components/native'; // eslint-disable-line import/no-extraneous-dependencies
+import React from 'react'
+import { View, Text, ScrollView } from 'react-native'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import styled from 'styled-components/native'
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createMaterialTopTabNavigator()
 
 const TabOne = () => (
     <View>
         <Text>Tab One</Text>
     </View>
-);
+)
 const TabTwo = () => (
     <ScrollView>
         <Text />
         {Array(42)
             .fill('Tab Two')
             .map((text: string, index) => {
-                const tabContent = `${text} (${index})`;
-                return <Text key={tabContent}>{tabContent}</Text>;
+                const tabContent = `${text} (${index})`
+                return <Text key={tabContent}>{tabContent}</Text>
             })}
     </ScrollView>
-);
+)
 const TabThree = () => (
     <View>
         <Text>Tab Three</Text>
     </View>
-);
+)
 
 const SettingTabs = () => {
     return (
@@ -34,16 +34,16 @@ const SettingTabs = () => {
             <Tab.Screen name="SettingsTwo" component={TabTwo} />
             <Tab.Screen name="SettingsThree" component={TabThree} />
         </Tab.Navigator>
-    );
-};
+    )
+}
 
 const Settings = (): React.ReactElement => {
     return (
         <StyledSettingsBox>
             <SettingTabs />
         </StyledSettingsBox>
-    );
-};
+    )
+}
 
 const StyledSettingsBox = styled.View`
     background-color: #ccc;
@@ -52,6 +52,6 @@ const StyledSettingsBox = styled.View`
     border-width: 4px;
     border-color: #000;
     border-radius: 5px;
-`;
+`
 
-export default Settings;
+export default Settings

@@ -17,7 +17,7 @@ export const setRunning = createAction('[APPSTATE] Set Running', (running: boole
 
 export const selectIsRunning = (state: RootState): boolean => state.appState.isRunning
 
-const appStateReducer = createReducer(initialState, builder => {
+const appStateReducer = createReducer(initialState, (builder) => {
     builder.addCase(setRunning, (state, action) => {
         const { running } = action.payload
         return {
