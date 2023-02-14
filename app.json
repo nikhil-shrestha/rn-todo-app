@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rng-starter",
-    "slug": "rng-starter",
+    "name": "rn_redux_boilerplate",
+    "slug": "rn_redux_boilerplate",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

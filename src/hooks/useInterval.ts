@@ -1,6 +1,6 @@
-/* created by Dan Abramov
- * src: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
- * */
+/* 
+ *  https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+ */
 
 import { useEffect, useCallback, useRef } from 'react'
 import { useFocusEffect } from '@react-navigation/native'

@@ -1,36 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import { Text } from 'react-native'
+import React from 'react'
+import { Text, View, Button } from 'react-native'
+import { useSelector } from 'react-redux'
 
-import { useReduxDispatch, useReduxSelector } from '@Store'
-import { getUserInfo, setUserInfo } from '@Store/ducks/userInfoSlice'
-import DefaultPage from '@Components/layouts/DefaultPage'
+import { getNews } from '../services'
+import { requestNewToken } from '../utils/token'
+import { RootState } from '../store/store'
 
-export default function Demo() {
-    const dispatch = useReduxDispatch()
-    const { name, id } = useReduxSelector(getUserInfo)
-    const [newUser, setNewUser] = useState<boolean>(false)
+// const Base_URL = 'http://10.0.2.2:4001/';
 
-    useEffect(() => {
-        if (id === 0) {
-            setNewUser(true)
-            const random4digits = Math.floor(Math.random() * 8999 + 1000)
-            const timestamp = Math.floor((Date.now() - new Date(2022, 2, 23).getTime()) / 1000)
-            const userId = timestamp * 10000 + random4digits
-            dispatch(
-                setUserInfo({
-                    name: `Guest ${random4digits}`,
-                    id: userId,
-                    status: 'guest',
-                }),
-            )
-        }
-    }, [id, dispatch])
+const Demo = () => {
+    const token = useSelector((state: RootState) => state.user.token)
+
+    const getData = () => {
+        getNews().then((res) => console.log(res))
+    }
+
+    const handleLogin = async () => {
+        // const body = {
+        //   username: '',
+        //   password: '',
+        // };
+
+        try {
+            // let res = await login(body);
+            // console.log(res.data);
+        } catch (e) {}
+    }
+
+    const handleRefetch = () => {
+        requestNewToken()
+    }
 
     return (
-        <DefaultPage>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <Text>{`WELCOME${!newUser ? ' BACK' : ''} `}</Text>
-            <Text>{`${name} | ${id || 'loading'} `}</Text>
-        </DefaultPage>
+        <View>
+            <Button title="FETCH" onPress={getData} />
+            <Button title="LOGIN" onPress={handleLogin} />
+            <Button title="GET ACC_TOKEN USING REFRESH" onPress={handleRefetch} />
+            <Text>{token}</Text>
+        </View>
     )
 }
+
+export default Demo

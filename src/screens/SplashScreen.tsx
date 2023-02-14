@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { Text, TouchableWithoutFeedback, View } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
-import { MainNavigationProp, MainRoutes } from '@Routing/routes'
+import { MainNavigationProp, MainRoutes } from 'src/routes/routes'
 import DefaultPage from '@Components/layouts/DefaultPage'
 
 type SplashScreenProps = {

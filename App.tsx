@@ -1,18 +1,25 @@
-import React from 'react'
-import { StatusBar } from 'expo-status-bar'
+import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-import store, { persistor } from '@Store'
-import MainNavigation from '@Routing/MainNavigation'
+import { store } from './src/store/store'
+import { ThemeProvider } from './src/theme/useTheme'
+import { NoInternetToast } from './src/components/NoInternet'
 
-export default function App() {
-    return (
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <MainNavigation />
-                <StatusBar hidden />
-            </PersistGate>
-        </Provider>
-    )
+// Navigation
+import RootNavigation from './src/routes/RootNavigation'
+
+export default class App extends Component {
+    render() {
+        return (
+            <SafeAreaProvider>
+                <Provider store={store}>
+                    <ThemeProvider>
+                        <RootNavigation />
+                        <NoInternetToast />
+                    </ThemeProvider>
+                </Provider>
+            </SafeAreaProvider>
+        )
+    }
 }

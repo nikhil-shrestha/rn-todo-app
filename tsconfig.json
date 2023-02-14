@@ -13,9 +13,9 @@
     "paths": {
       "@Components/*": ["./src/components/*"],
       "@Screens/*": ["./src/screens/*"],
-      "@Store": ["./src/redux/index.ts"],
-      "@Store/*": ["./src/redux/*"],
-      "@Routing/*": ["./src/routing/*"],
+      "@Store": ["src/store/index.ts"],
+      "@Store/*": ["src/store/*"],
+      "@Routing/*": ["src/routes/*"],
       "@Assets/*": ["./assets/*"]
     }
   },
