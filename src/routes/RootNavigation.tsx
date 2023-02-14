@@ -46,7 +46,7 @@ export default function RootNavigation() {
     useEffect(() => {
         async function checkIsLogined() {
             try {
-                let temp = await getSecureValue('token')
+                const temp = await getSecureValue('token')
                 dispatch(updateToken({ token: temp }))
             } catch (e) {}
         }

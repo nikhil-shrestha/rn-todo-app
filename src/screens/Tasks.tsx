@@ -23,7 +23,7 @@ const Tasks = () => {
     const [text, setText] = useState('')
 
     const addNewTask = () => {
-        let temp = text.trim()
+        const temp = text.trim()
         if (temp !== '') {
             dispatch(taskAdded({ id: Date.now(), title: temp, done: false }))
         }
